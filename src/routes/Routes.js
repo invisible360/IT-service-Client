@@ -1,8 +1,10 @@
 import AddService from "../pages/AddService/AddService";
+import Blogs from "../pages/Blogs/Blogs";
 import Login from "../pages/Login/Login";
 import MyReviews from "../pages/MyReviews/MyReviews";
 import Register from "../pages/Register/Register";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import RoutePrivate from "./RoutePrivate";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -38,11 +40,15 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/addservice',
-                element: <AddService></AddService>
+                element: <RoutePrivate><AddService></AddService></RoutePrivate>
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <RoutePrivate><MyReviews></MyReviews></RoutePrivate>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             }
         ]
     },

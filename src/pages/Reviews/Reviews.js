@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext);
+    const location = useLocation();
 
     return (
         <div>
@@ -17,7 +18,9 @@ const Reviews = () => {
                         <input type="submit" value="Add a Review" />
                     </form>
                     :
-                    <p>Please <Link to='/login'>Login</Link> to Add a Review</p>
+                    <>
+                    <p>Please <Link to='/login' state={{ from: location }} replace>Login</Link> to Add a Review</p>
+                    </>
             }
         </div>
     );

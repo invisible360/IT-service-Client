@@ -24,6 +24,7 @@ const Header = () => {
                     :
                     <Link to='/login'>Login</Link>
             }
+            <Link to='/blogs'>Blog</Link>
         </div>
     );
 };
