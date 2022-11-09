@@ -1,4 +1,6 @@
+import AddService from "../pages/AddService/AddService";
 import Login from "../pages/Login/Login";
+import MyReviews from "../pages/MyReviews/MyReviews";
 import Register from "../pages/Register/Register";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 
@@ -33,6 +35,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
             }
         ]
     },
