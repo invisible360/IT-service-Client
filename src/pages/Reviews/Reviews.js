@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext/AuthProvider';
 
 const Reviews = () => {
-    // reviews page contain= a text, name, image of the reviewer, 
+    const { user } = useContext(AuthContext);
+    
     return (
         <div>
             <h1>All Reviews are Here</h1>
