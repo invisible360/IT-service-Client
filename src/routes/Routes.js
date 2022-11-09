@@ -1,7 +1,6 @@
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
 const { default: Home } = require("../pages/Home/Home");
-const { default: Login } = require("../pages/Login/Login");
 const { default: Services } = require("../pages/Services/Services");
 
 export const routes = createBrowserRouter([
@@ -14,12 +13,9 @@ export const routes = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: '/login',
-                element: <Login />
-            },
-            {
                 path: '/services',
-                element: <Services />
+                element: <Services />,
+                loader: () => fetch(`http://localhost:5000/allservices`)
             }
         ]
     },
