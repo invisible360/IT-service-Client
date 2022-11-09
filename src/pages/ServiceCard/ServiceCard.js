@@ -1,3 +1,4 @@
+import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -5,18 +6,30 @@ import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
     return (
+
+
         <div>
-            {/* things to be displayed in service card:
-            Service Name{title}, image, price, a short description, a view details button
-            */}
-            <h3>{service.title}, Service details card</h3>
-            <PhotoProvider>
-                <PhotoView src={service.img}>
-                    <img src={service.img} alt=""></img>
-                </PhotoView>
-            </PhotoProvider>
-            <Link to={`/services/${service._id}`}><button>view Details</button></Link>
+            <Card className='h-[34rem]' imgSrc=''>
+
+                {/* photo view implemented */}
+                <PhotoProvider>
+                    <PhotoView src={service.img}>
+                        <img className='max-w-full h-auto' src={service.img} alt=""></img>
+                    </PhotoView>
+                </PhotoProvider>
+
+                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {service.title}
+                </h5>
+                <p className="font-normal text-gray-700 dark:text-gray-400">
+                    {service.description.slice(0, 100)}
+                </p>
+                <p className='text-xl text-orange-600'>$ {service.price}</p>
+
+                <Link to={`/services/${service._id}`}><Button>View Details</Button></Link>
+            </Card>
         </div>
+
     );
 };
 

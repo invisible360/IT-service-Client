@@ -8,13 +8,15 @@ const Services = () => {
 
     return (
         <div>
-            <h1>All Services</h1>
-            {
-                allservices.map(service => <ServiceCard
-                    key={service._id}
-                    service={service}
-                ></ServiceCard>)
-            }
+            <h1 className='text-4xl font-bold text-center my-10'>All Services</h1>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 w-[90%] mx-auto'>
+                {
+                    allservices.map(service => <ServiceCard
+                        key={service._id}
+                        service={service}
+                    ></ServiceCard>)
+                }
+            </div>
 
         </div>
     );
