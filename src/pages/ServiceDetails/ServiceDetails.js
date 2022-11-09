@@ -1,13 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Reviews from '../Reviews/Reviews';
+import ShowServiceDetails from '../ShowServiceDetails/ShowServiceDetails';
 
 const ServiceDetails = () => {
     const oneService = useLoaderData();
 
     return (
         <div>
-            <h1>Service Details Page</h1>
-            <p>{oneService.title}</p>
+            <ShowServiceDetails oneService={oneService}></ShowServiceDetails>
+            <Reviews></Reviews>
         </div>
     );
 };
