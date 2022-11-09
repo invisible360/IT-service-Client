@@ -1,7 +1,7 @@
 import React from 'react';
 import { getAuth } from 'firebase/auth'
 import { createContext } from 'react';
-import app from './firebase/firebase.config';
+import app from '../../firebase/firebase.config';
 
 export const AuthContext = createContext();
 
