@@ -1,7 +1,9 @@
 import { Avatar, Timeline } from 'flowbite-react';
 import React from 'react';
 
-const IndividualReview = () => {
+const IndividualReview = ({ review }) => {
+    // console.log(review);
+    const { reviewer, reviewerPhoto, reviewerMessage } = review;
     return (
         <div>
             <Timeline.Item>
@@ -9,13 +11,13 @@ const IndividualReview = () => {
                 <Timeline.Content>
                     <Timeline.Title className='flex items-center'>
                         <Avatar
-                            img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                            img={reviewerPhoto}
                             rounded={true}
                         />
-                        <span className='ml-4'>Reviewer er name</span>
+                        <span className='ml-4'>{reviewer}</span>
                     </Timeline.Title>
                     <Timeline.Body>
-                        Ekta Text thakbe
+                        {reviewerMessage}
                     </Timeline.Body>
 
                 </Timeline.Content>

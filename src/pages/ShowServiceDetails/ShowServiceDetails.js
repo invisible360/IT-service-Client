@@ -1,11 +1,12 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ShowServiceDetails = ({ oneService }) => {
-    
+
     return (
         <div className='w-[90%] mx-auto'>
-            <h1 className='text-4xl font-bold text-center my-10'>Service Details</h1>
+            <h1 className='text-4xl font-bold text-center my-10'><Link to='/services'>Service Details</Link></h1>
             <p></p>
 
             <Card className='w-3/4 mx-auto' imgSrc={oneService.img}>
