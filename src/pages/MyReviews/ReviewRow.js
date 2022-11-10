@@ -1,14 +1,18 @@
 import { Button, Table } from 'flowbite-react';
 import React from 'react';
 
-const ReviewRow = ({ review }) => {
+const ReviewRow = ({ review, handleDeleteItem }) => {
     // console.log(review);
-    const { serviceName, reviewerMessage, reviewer, price } = review;
+    const { serviceName, reviewerMessage, reviewer, price, _id } = review;
+
+   
+
     return (
 
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell className="!p-4">
                 <Button
+                    onClick={() => handleDeleteItem(_id)}
                     color="gray"
                     pill={true}
                 >

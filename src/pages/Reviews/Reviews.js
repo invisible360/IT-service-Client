@@ -1,5 +1,6 @@
 import { Button, TextInput, Timeline } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import IndividualReview from '../IndividualReview/IndividualReview';
@@ -59,7 +60,7 @@ const Reviews = ({ oneService }) => {
                 // console.log(data);
                 if (data.acknowledged) {
                     form.reset();
-                    alert('Review Posted Succesfully');
+                    toast.success('Review Posted Succesfully');
                     navigate (0)
                 }
             })

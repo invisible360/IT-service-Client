@@ -1,5 +1,6 @@
 import { Table } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import ReviewRow from './ReviewRow';
@@ -9,6 +10,27 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const userEmails = myReviews.filter(userReviews => userReviews.reviewer === user.email)
     // console.log(userEmails.length);
+
+    const [userRevs, setUserRevs] = useState(userEmails);
+
+    //delete from DB
+    const handleDeleteItem = id => {
+        const proceed = window.confirm(`Are You Sure want to Delete?`);
+        if (proceed) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.success ('Review Deleted Successfully')
+                        const remainingReviews = userRevs.filter(rev => rev._id !== id)
+                        setUserRevs(remainingReviews)
+                    }
+                })
+        }
+    }
 
     return (
         <div className='min-h-screen w-[95%] mx-auto'>
@@ -39,7 +61,11 @@ const MyReviews = () => {
 
                 <Table.Body className="divide-y">
                     {
-                        userEmails.map(review => <ReviewRow key={review._id} review={review}></ReviewRow>)
+                        userRevs.map(review => <ReviewRow
+                            key={review._id}
+                            review={review}
+                            handleDeleteItem={handleDeleteItem}
+                        ></ReviewRow>)
                     }
 
                 </Table.Body>
