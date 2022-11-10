@@ -1,10 +1,46 @@
+import { Table } from 'flowbite-react';
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
+    const myReviews = useLoaderData();
+    // console.log(myReviews);
+
     return (
-        <div>
-            <h1>My Reviews</h1>
-            <p>show only the reviews that the current user added either in a table or in cards with relevant information like - service name, review etc. There will be two buttons/icons - edit review(details in the bonus part) and delete review with each review. On clicking the delete button/icon, you have to delete the review, and it won't show up on that service page anymore. When the delete is successful, a toast/modal with a message will pop up to inform the user. If the user doesn't add any review, the page will show 'No reviews were added' at the middle of the page</p>
+        <div className='min-h-screen w-[95%] mx-auto'>
+            <h1 className="text-4xl font-bold text-center my-10">My Reviews</h1>
+            <Table hoverable={true}>
+                <Table.Head>
+                    <Table.HeadCell className="!p-4">
+                    </Table.HeadCell>
+                    <Table.HeadCell>
+                        Service name
+                    </Table.HeadCell>
+                    <Table.HeadCell>
+                        Review
+                    </Table.HeadCell>
+                    <Table.HeadCell>
+                        User Email
+                    </Table.HeadCell>
+                    <Table.HeadCell>
+                        Price
+                    </Table.HeadCell>
+                    <Table.HeadCell>
+                        Modify
+                        <span className="sr-only">
+                            Edit
+                        </span>
+                    </Table.HeadCell>
+                </Table.Head>
+
+                <Table.Body className="divide-y">
+                    {
+                        myReviews.map(review => <ReviewRow key={review._id} review={review}></ReviewRow>)
+                    }
+
+                </Table.Body>
+            </Table>
         </div>
     );
 };
