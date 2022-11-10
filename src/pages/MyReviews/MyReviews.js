@@ -1,11 +1,14 @@
 import { Table } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
     const myReviews = useLoaderData();
-    // console.log(myReviews);
+    const { user } = useContext(AuthContext);
+    const userEmails = myReviews.filter(userReviews => userReviews.reviewer === user.email)
+    // console.log(userEmails.length);
 
     return (
         <div className='min-h-screen w-[95%] mx-auto'>
@@ -36,11 +39,17 @@ const MyReviews = () => {
 
                 <Table.Body className="divide-y">
                     {
-                        myReviews.map(review => <ReviewRow key={review._id} review={review}></ReviewRow>)
+                        userEmails.map(review => <ReviewRow key={review._id} review={review}></ReviewRow>)
                     }
 
                 </Table.Body>
             </Table>
+            {
+                userEmails.length === 0 &&
+                <>
+                    <h1 className='text-center text-4xl font-bold my-20'>No Reviews were Added</h1>
+                </>
+            }
         </div>
     );
 };
