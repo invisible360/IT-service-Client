@@ -1,10 +1,12 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate()
 
 
     const handleRegister = event => {
@@ -17,7 +19,9 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                // console.log(user);
+                toast.success('Registration Done')
+                navigate('/')
+                console.log(user);
                 form.reset();
             })
             .catch(error => console.error(error))
