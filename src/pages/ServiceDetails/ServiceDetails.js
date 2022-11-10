@@ -9,7 +9,7 @@ const ServiceDetails = () => {
     return (
         <div>
             <ShowServiceDetails oneService={oneService}></ShowServiceDetails>
-            <Reviews></Reviews>
+            <Reviews oneService={oneService}></Reviews>
         </div>
     );
 };

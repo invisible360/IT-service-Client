@@ -2,6 +2,7 @@ import { Card } from 'flowbite-react';
 import React from 'react';
 
 const ShowServiceDetails = ({ oneService }) => {
+    
     return (
         <div className='w-[90%] mx-auto'>
             <h1 className='text-4xl font-bold text-center my-10'>Service Details</h1>

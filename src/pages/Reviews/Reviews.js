@@ -1,18 +1,45 @@
-import { Button, Label, TextInput, Timeline } from 'flowbite-react';
+import { Button, TextInput, Timeline } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import IndividualReview from '../IndividualReview/IndividualReview';
 
-const Reviews = () => {
+const Reviews = ({ oneService }) => {
     const { user } = useContext(AuthContext);
     const location = useLocation();
+    const { _id, title, price, img } = oneService
 
     const handleAddReview = (event) => {
         event.preventDefault();
         const form = event.target;
-        const reviewMessage = form.reviewMessage.value;
-        console.log(reviewMessage);
+        const reviewerEmail = user?.email || 'unregistered';
+        const reviewerPhoto = user?.photoURL || 'No photo found';
+        const reviewerMessage = form.reviewMessage.value;
+        // console.log(reviewMessage);
+
+        const reviews = {
+            service: _id,
+            serviceName: title, price, img,
+            reviewer: reviewerEmail, reviewerPhoto, reviewerMessage
+        }
+        // console.log(reviews);
+        fetch(`http://localhost:5000/reviews`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(reviews)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.acknowledged) {
+                    form.reset();
+                    alert('Review Posted Succesfully');
+                }
+            })
+            .catch(err => console.error(err))
+
     }
 
     return (
