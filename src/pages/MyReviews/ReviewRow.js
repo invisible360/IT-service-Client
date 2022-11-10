@@ -1,11 +1,12 @@
 import { Button, Table } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ReviewRow = ({ review, handleDeleteItem }) => {
     // console.log(review);
     const { serviceName, reviewerMessage, reviewer, price, _id } = review;
 
-   
+
 
     return (
 
@@ -36,7 +37,7 @@ const ReviewRow = ({ review, handleDeleteItem }) => {
                     color="gray"
                     pill={true}
                 >
-                    Edit
+                    <Link to={`/update/${_id}`}>Edit</Link>
                 </Button>
             </Table.Cell>
         </Table.Row>
