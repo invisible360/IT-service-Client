@@ -54,7 +54,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'update/:id',
-                element: <Update />,
+                element: <RoutePrivate><Update /></RoutePrivate>,
                 loader: ({ params }) => fetch(`https://it-service-server-invisible360.vercel.app/update/${params.id}`),
             }
         ]
