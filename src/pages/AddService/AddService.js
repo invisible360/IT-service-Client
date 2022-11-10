@@ -1,8 +1,42 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddService = () => {
-    const handleAddService = () => {
+    const navigate = useNavigate();
+
+    const handleAddService = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const title = form.serviceName.value;
+        const img = form.photo.value;
+        const price = form.price.value;
+        const description = form.description.value;
+
+        const addService = {
+            title, img, price, description
+        }
+        console.log(addService);
+
+
+        fetch(`http://localhost:5000/allservices`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(addService)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.acknowledged) {
+                    form.reset();
+                    toast.success('Service Added Succesfully');
+                    navigate('/services')
+                }
+            })
+
 
     }
 

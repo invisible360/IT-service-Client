@@ -89,8 +89,8 @@ const Reviews = ({ oneService }) => {
                             type="text"
                             name="reviewMessage"
                             sizing="lg"
-                            defaultValue={title}
-                            placeholder="Write Reviews"
+                            // defaultValue={title}
+                            placeholder={`Write Reviews on Service:-- ${title}`}
                         />
                         <div className='flex items-center justify-center my-5'>
                             <Button type="submit">
