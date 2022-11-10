@@ -14,7 +14,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from, { replace: true });
             })
             .then(error => {
@@ -32,7 +32,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from, { replace: true });
                 form.reset();
             })

@@ -9,8 +9,8 @@ const RoutePrivate = ({ children }) => {
 
     if (loading) {
         return <>
-            <div className="text-center">
-                <Spinner aria-label="Center-aligned spinner example" />
+            <div className="text-center min-h-screen">
+                <Spinner className='w-60 h-60' aria-label="Center-aligned spinner example" />
             </div>
         </>
     }

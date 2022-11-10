@@ -19,7 +19,7 @@ const Reviews = ({ oneService }) => {
                 // console.log(data);
                 const reviewsByID = data.filter(filIds => filIds.service === _id);
                 const filterIDS = reviewsByID.map(id => id.service)
-                console.log(filterIDS);
+                // console.log(filterIDS);
                 fetch('http://localhost:5000/reviewsByServiceID', {
                     method: 'POST',
                     headers: {
