@@ -7,7 +7,7 @@ const ServiceInHome = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://it-service-server-invisible360.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 setServices(data);

@@ -24,12 +24,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services />,
-                loader: () => fetch(`http://localhost:5000/allservices`)
+                loader: () => fetch(`https://it-service-server-invisible360.vercel.app/allservices`)
             },
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://it-service-server-invisible360.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -46,7 +46,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/myreviews',
                 element: <RoutePrivate><MyReviews></MyReviews></RoutePrivate>,
-                loader: () => fetch(`http://localhost:5000/reviews`)
+                loader: () => fetch(`https://it-service-server-invisible360.vercel.app/reviews`)
             },
             {
                 path: '/blogs',
@@ -55,7 +55,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'update/:id',
                 element: <Update />,
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`),
+                loader: ({ params }) => fetch(`https://it-service-server-invisible360.vercel.app/update/${params.id}`),
             }
         ]
     },

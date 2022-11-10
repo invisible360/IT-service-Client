@@ -22,7 +22,7 @@ const AddService = () => {
         console.log(addService);
 
 
-        fetch(`http://localhost:5000/allservices`, {
+        fetch(`https://it-service-server-invisible360.vercel.app/allservices`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

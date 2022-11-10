@@ -19,7 +19,7 @@ const MyReviews = () => {
     const handleDeleteItem = id => {
         const proceed = window.confirm(`Are You Sure want to Delete?`);
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://it-service-server-invisible360.vercel.app/reviews/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

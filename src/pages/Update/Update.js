@@ -13,7 +13,7 @@ const Update = () => {
         const updatedRev = event.target.update.value;
         // console.log(updatedRev);
 
-        fetch(`http://localhost:5000/review/${review._id}`, {
+        fetch(`https://it-service-server-invisible360.vercel.app/review/${review._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

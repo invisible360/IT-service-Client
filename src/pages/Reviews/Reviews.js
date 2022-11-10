@@ -13,14 +13,14 @@ const Reviews = ({ oneService }) => {
 
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`)
+        fetch(`https://it-service-server-invisible360.vercel.app/reviews`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
                 const reviewsByID = data.filter(filIds => filIds.service === _id);
                 const filterIDS = reviewsByID.map(id => id.service)
                 // console.log(filterIDS);
-                fetch('http://localhost:5000/reviewsByServiceID', {
+                fetch('https://it-service-server-invisible360.vercel.app/reviewsByServiceID', {
                     method: 'POST',
                     headers: {
                         "content-type": "application/json"
@@ -48,7 +48,7 @@ const Reviews = ({ oneService }) => {
             reviewer: reviewerEmail, reviewerPhoto, reviewerMessage
         }
         // console.log(reviews);
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://it-service-server-invisible360.vercel.app/reviews`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
