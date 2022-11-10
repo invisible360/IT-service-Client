@@ -43,18 +43,6 @@ const Login = () => {
 
     return (
         <div className=' min-h-screen w-1/2 mx-auto my-24'>
-            {/* <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <input type="email" name='email' placeholder='Email' required />
-                <br />
-                <input type="password" name='password' placeholder='Password' required />
-                <br />
-                <input type="submit" value="Login" />
-            </form>
-            <p>New user? <Link to='/register'>Register</Link></p>
-
-            <p>Or Sign In:</p>
-            <button onClick={handleGoogleSignIn}>Google</button> */}
 
             <h1 className="text-4xl font-bold text-center my-5">Login</h1>
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
