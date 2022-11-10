@@ -41,7 +41,7 @@ const Header = () => {
                 </div>
 
                 <Navbar.Collapse>
-                    <Navbar.Link active={true}>
+                    <Navbar.Link >
                         <Link to='/'>Home</Link>
                     </Navbar.Link>
 

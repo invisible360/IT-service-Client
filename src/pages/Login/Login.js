@@ -1,3 +1,4 @@
+import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
@@ -41,8 +42,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className=' min-h-screen w-1/2 mx-auto my-24'>
+            {/* <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <input type="email" name='email' placeholder='Email' required />
                 <br />
@@ -53,7 +54,49 @@ const Login = () => {
             <p>New user? <Link to='/register'>Register</Link></p>
 
             <p>Or Sign In:</p>
-            <button onClick={handleGoogleSignIn}>Google</button>
+            <button onClick={handleGoogleSignIn}>Google</button> */}
+
+            <h1 className="text-4xl font-bold text-center my-5">Login</h1>
+            <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="email"
+                            value="Your email"
+                        />
+                    </div>
+                    <TextInput
+                        name="email"
+                        type="email"
+                        placeholder="name@email.com"
+                        required={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label
+                            htmlFor="password"
+                            value="Your password"
+                        />
+                    </div>
+                    <TextInput
+                        name="password"
+                        type="password"
+                        required={true}
+                    />
+                </div>
+
+                <Button type="submit">
+                    Login
+                </Button>
+            </form>
+
+            <div className='my-5 flex items-center justify-center flex-col'>
+                <p>New user? Please <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to='/register'>Register</Link></p>
+
+                <span>Or Sign In Using:</span>
+                <Button className='my-5' onClick={handleGoogleSignIn}>Google</Button>
+            </div>
         </div>
     );
 };

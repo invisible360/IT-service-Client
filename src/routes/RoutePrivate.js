@@ -1,3 +1,4 @@
+import { Spinner } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext/AuthProvider';
@@ -8,7 +9,9 @@ const RoutePrivate = ({ children }) => {
 
     if (loading) {
         return <>
-            <h3>Loading....</h3>
+            <div className="text-center">
+                <Spinner aria-label="Center-aligned spinner example" />
+            </div>
         </>
     }
 
