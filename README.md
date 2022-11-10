@@ -12,6 +12,7 @@ Live Link: https://it-service-94bec.web.app/
 * Conditional rendering navbar
 * Review delete functionalies
 * Service Adding Features
+* Dynamic Title
 
 ## List of Technologies
 * create-react-app

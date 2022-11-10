@@ -3,9 +3,11 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import ReviewRow from './ReviewRow';
 
 const MyReviews = () => {
+    useTitle('My Reviews')
     const myReviews = useLoaderData();
     const { user } = useContext(AuthContext);
     const userEmails = myReviews.filter(userReviews => userReviews.reviewer === user.email)
